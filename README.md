@@ -32,14 +32,14 @@ Esta é uma API REST desenvolvida com **FastAPI** que permite consultar cotaçõ
 1. Clone o repositório:
 
 bash
-git clone https://github.com/seu-usuario/api-cotacoes-b3.git
+git clone https://github.com/caiodotmm/api-cotacoes-b3.git
 cd api-cotacoes-b3
 
 ---
 
 ## Crie e ative um ambiente virtual:
 python -m venv venv
-source venv/bin/activate  # Linux/macOS
+source venv/bin/activate
 pip install fastapi uvicorn
 
 ---
@@ -105,6 +105,7 @@ Resposta:
 Requisição:
 GET /cotacoes?{tickers}
 Authorization: Bearer {token}
+
 Resposta:
 [
   {
@@ -136,6 +137,7 @@ Resposta:
 Requisição:
 GET /cotacoes/{ticker}?start=2025-01-01&end=2025-06-01
 Authorization: Bearer {token}
+
 Resposta:
 [
   {
