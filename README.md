@@ -31,25 +31,36 @@ Esta é uma API REST desenvolvida com **FastAPI** que permite consultar cotaçõ
 
 1. Clone o repositório:
 
-bash
+```bash
 git clone https://github.com/caiodotmm/api-cotacoes-b3.git
 cd api-cotacoes-b3
+```
 
 ---
 
 ## Crie e ative um ambiente virtual:
+
+```bash
+sudo apt update # comandos distribuiçao origem debian
+sudo apt install python3-venv python3-pip # comandos distribuiçao origem debian
 python -m venv venv
 source venv/bin/activate
+pip install --upgrade pip
 pip install fastapi uvicorn
+```
 
 ---
 
 ### Instale as dependências:
+
+```bash
 pip install -r requirements.txt
+```
 
 ---
 
 ### Configure o banco de dados PostgreSQL em .env:
+
 DATABASE_URL=postgresql://usuario:senha@localhost:5432/api-cotacoes-b3
 SECRET_KEY=sua_chave_secreta
 ALGORITHM=HS256
@@ -58,18 +69,23 @@ ACCESS_TOKEN_EXPIRE_MINUTES=30
 ---
 
 ### Rode as migrações com Alembic:
+
+```bash
 alembic upgrade head
+```
 
 --- 
 
 ## 📥 Executando a API - localmente
 
-bash
+```bash
 uvicorn app.main:app --reload
+``` 
 
 ---
 
 ## 🔐 Autenticação
+
 POST /auth/login
 Body:
 {
@@ -86,6 +102,7 @@ Resposta:
 ---
 
 ## 📌 Obter cotação de uma ação específica
+
 Requisição:
 GET /cotacao/{ticker}
 Authorization: Bearer {token}
@@ -102,6 +119,7 @@ Resposta:
 ---
 
 ## 📌 Obter cotações de múltiplas ações
+
 Requisição:
 GET /cotacoes?{tickers}
 Authorization: Bearer {token}
@@ -134,6 +152,7 @@ Resposta:
 ---
 
 ### 📅 Histórico por data (opcional)
+
 Requisição:
 GET /cotacoes/{ticker}?start=2025-01-01&end=2025-06-01
 Authorization: Bearer {token}
@@ -166,8 +185,11 @@ Resposta:
 ---
 
 ### 🧪 Como rodar os testes
+
+```bash
 pytest tests/
 pytest --cov=app tests/
+```
 
 ---
 

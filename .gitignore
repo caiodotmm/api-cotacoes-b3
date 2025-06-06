@@ -1,0 +1,25 @@
+# Bytecode e cache
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.mypy_cache/
+.cache/
+
+# Ambiente virtual
+venv/
+.venv/
+
+# Ferramentas de teste
+.coverage
+
+# Logs e arquivos temporários
+*.log
+*.swp
+
+# Configurações de IDE
+.vscode/
+.idea/
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
