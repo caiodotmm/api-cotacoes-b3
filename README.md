@@ -41,10 +41,11 @@ cd api-cotacoes-b3
 ## Crie e ative um ambiente virtual:
 
 ```bash
-sudo apt update
-sudo apt install python3-venv python3-pip
+sudo apt update # comandos distribuiçao origem debian
+sudo apt install python3-venv python3-pip # comandos distribuiçao origem debian
 python -m venv venv
 source venv/bin/activate
+pip install --upgrade pip
 pip install fastapi uvicorn
 ```
 
