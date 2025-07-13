@@ -1,10 +1,14 @@
 services:
   api:
-    build: .
+    build: 
+      context: .
+      args:
+        - USER_ID=1000
+        - GROUP_ID=1000
     ports:
       - "8000:8000"
     volumes:
-      - .:/app
+      - .:/app:z
     working_dir: /app
     env_file:
       - .env
@@ -20,6 +24,7 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - pgdata:/var/lib/postgresql/data
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d:z
     ports:
       - "5432:5432"
 

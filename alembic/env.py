@@ -1,12 +1,16 @@
-from logging.config import fileConfig
-
 import os
 from dotenv import load_dotenv
 
+import sys
+from pathlib import Path
+
+import logging
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
 from alembic import context
+
+sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 # for loading enviroment variables from .env
 load_dotenv()
@@ -24,14 +28,20 @@ config.set_main_option("sqlalchemy.url", db_url)
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
+"""
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
-
+"""
+logging.basicConfig(
+    format="%(asctime)s %(levelname)-8s %(name)s %(message)s",
+    level=logging.INFO
+)
 # add your model's MetaData object here
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-target_metadata = None
+from app.models import Base
+target_metadata = Base.Metadata
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
